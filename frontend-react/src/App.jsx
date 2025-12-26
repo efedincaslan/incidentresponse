@@ -38,12 +38,14 @@ function Card({ children }) {
         border: "1px solid rgba(255,255,255,0.10)",
         background: "rgba(255,255,255,0.04)",
         boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+        overflow: "hidden", // ✅ prevents the white overflow blob
       }}
     >
       {children}
     </div>
   );
 }
+
 
 function Button({ children, variant = "primary", ...props }) {
   const bg =
@@ -182,11 +184,12 @@ export default function App() {
   style={{
     display: "grid",
     gridTemplateColumns: "420px minmax(0, 1fr)",
-    gap: 14,
+    gap: 16,
     alignItems: "start",
-    height: "100%",
+    width: "100%",
   }}
 >
+
 
           <Card>
             <div style={{ padding: 14, borderBottom: "1px solid rgba(255,255,255,0.08)", fontWeight: 700 }}>

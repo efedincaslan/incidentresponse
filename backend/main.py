@@ -8,16 +8,19 @@ from models import Ticket
 from schemas import TicketCreate, TicketOut, TicketUpdate
 
 app = FastAPI(title="TicketDesk API")
+from fastapi.middleware.cors import CORSMiddleware
 
-# CORS: allow your Netlify domain later; for dev keep it open.
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "*").split(",")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[o.strip() for o in ALLOWED_ORIGINS],
-    allow_credentials=True,
+    allow_origins=[
+        "https://incidentticket.netlify.app/",
+        "http://localhost:5500",
+        "http://127.0.0.1:5500",
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.on_event("startup")
 def startup():
