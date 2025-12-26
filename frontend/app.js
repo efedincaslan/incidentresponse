@@ -1,5 +1,6 @@
 // In Netlify, we’ll inject this at build time.
-const API_BASE = window.API_BASE || "http://127.0.0.1:8000";
+const API_BASE = "https://incidentresponse-luof.onrender.com";
+
 
 const el = (id) => document.getElementById(id);
 const listEl = el("list");
